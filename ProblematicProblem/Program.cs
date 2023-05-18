@@ -77,8 +77,11 @@ namespace ProblematicProblem
                     Console.WriteLine();
                 }
 
+
+
                 while (cont == true)
                 {
+                    Console.WriteLine();
                     Console.Write("Connecting to the database");
                     for (int i = 0; i < 10; i++)
                     {
@@ -97,15 +100,33 @@ namespace ProblematicProblem
                     int randomNumber = rng.Next(activities.Count);
                     string randomActivity = activities[randomNumber];
 
-                    if (userAge > 21 && randomActivity == "Wine Tasting")
+                    if (userAge < 21 && randomActivity == "Wine Tasting") 
                     {
+                        Console.WriteLine();
                         Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
-                        Console.WriteLine("Pick something else!");
+                        Console.WriteLine();
+                        Console.WriteLine("Lets generate something else!");
                         activities.Remove(randomActivity);
+                        Console.WriteLine();
+                        Console.Write("Connecting to the database");
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Console.Write(". ");
+                            Thread.Sleep(500);
+                        }
+                        Console.WriteLine();
+                        Console.Write("Choosing your random activity");
+                        for (int i = 0; i < 9; i++)
+                        {
+                            Console.Write(". ");
+                            Thread.Sleep(500);
+                        }
+                        Console.WriteLine();
 
                         randomNumber = rng.Next(activities.Count);
                         randomActivity = activities[randomNumber];
                     }
+
                     Console.WriteLine();
                     Console.WriteLine($"Ah got it! {userName}, your random activity is: {randomActivity}!");
                     Console.WriteLine();
